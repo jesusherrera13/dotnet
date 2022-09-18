@@ -48,6 +48,9 @@ namespace Clientes
 
                 list_clientes.Items.Add(cliente);
                 txt_nombre.Text = "";
+                txt_apellido.Text = "";
+                txt_telefono.Text = "";
+                txt_email.Text = "";
             }
 
             txt_nombre.Focus();
