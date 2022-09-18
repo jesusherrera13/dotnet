@@ -1,0 +1,12 @@
+C:\Users\Jesús Herrera\source\repos\Clientes\Clientes\bin\Debug\Clientes.exe.config
+C:\Users\Jesús Herrera\source\repos\Clientes\Clientes\bin\Debug\Clientes.exe
+C:\Users\Jesús Herrera\source\repos\Clientes\Clientes\bin\Debug\Clientes.pdb
+C:\Users\Jesús Herrera\source\repos\Clientes\Clientes\obj\Debug\Clientes.csproj.AssemblyReference.cache
+C:\Users\Jesús Herrera\source\repos\Clientes\Clientes\obj\Debug\Clientes.csproj.SuggestedBindingRedirects.cache
+C:\Users\Jesús Herrera\source\repos\Clientes\Clientes\obj\Debug\Clientes.Menu.resources
+C:\Users\Jesús Herrera\source\repos\Clientes\Clientes\obj\Debug\Clientes.Properties.Resources.resources
+C:\Users\Jesús Herrera\source\repos\Clientes\Clientes\obj\Debug\Clientes.csproj.GenerateResource.cache
+C:\Users\Jesús Herrera\source\repos\Clientes\Clientes\obj\Debug\Clientes.csproj.CoreCompileInputs.cache
+C:\Users\Jesús Herrera\source\repos\Clientes\Clientes\obj\Debug\Clientes.exe
+C:\Users\Jesús Herrera\source\repos\Clientes\Clientes\obj\Debug\Clientes.pdb
+C:\Users\Jesús Herrera\source\repos\Clientes\Clientes\obj\Debug\Clientes.Clientes.resources
