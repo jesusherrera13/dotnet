@@ -1,9 +1,32 @@
-﻿@page "/"
+﻿@inject IJSRuntime JsRuntime
+@using BlazorTodo.Data
+@using System.Net.Http
+@page "/"
 
-<PageTitle>Index</PageTitle>
+<PageTitle>Blazor TODO</PageTitle>
 
-<h1>Hello, world!</h1>
-
-Welcome to your new app.
-
+<h1>TODO App</h1>
+<form>
+    <div class="mb-3">
+        <label for="titulo" class="form-label">Título</label>
+        <input type="text" class="form-control" id="titulo" placeholder="¿Qué vas a hacer?">
+    </div>
+    <div class="mb-3">
+        <label for="observaciones" class="form-label">Observaciones</label>
+        <textarea class="form-control" id="observaciones" rows="3"></textarea>
+    </div>
+</form>
+<button class="btn btn-primary">Guardar</button>
 <SurveyPrompt Title="How is Blazor working for you?" />
+
+@code
+{
+    // string message = "";
+    Todo todo = new Todo();
+
+    private async Task guardar()
+    {
+        // await JsRuntime.InvokeVoidAsync("alert", "Warning!");
+        @* await Http.SendJsonAsync(HttpMethod.Post, "/api/Employee/Create", todo); *@
+    }
+}
