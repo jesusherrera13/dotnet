@@ -116,7 +116,6 @@ namespace Clientes
                 Cliente cliente = clientes.ElementAt(i);
                 list_clientes.Items.Add(cliente);
             }
-
         }
     }
 }

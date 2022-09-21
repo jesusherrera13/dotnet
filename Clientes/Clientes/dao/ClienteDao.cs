@@ -44,25 +44,35 @@ namespace Clientes.dao
 
         public List<Cliente> getClientes()
         {
-            List<Cliente> clientes = new List<Cliente>();
-            Conectar();
-            connection.Open();
-            string sql = "SELECT * FROM " + database +".clientes";
-            MySqlCommand command = new MySqlCommand(@sql, connection);
-            MySqlDataReader reader = command.ExecuteReader();
+            List<Cliente> clientes = new List<Cliente>(); ;
+            try
+            { 
+                clientes = new List<Cliente>();
+                Conectar();
+                connection.Open();
+                string sql = "SELECT * FROM " + database +".clientes";
+                MySqlCommand command = new MySqlCommand(@sql, connection);
+                MySqlDataReader reader = command.ExecuteReader();
 
-            while(reader.Read())
-            {
-                Cliente cliente = new Cliente();
-                cliente.Id = Int32.Parse(reader.GetString("id"));
-                cliente.Nombre = reader.GetString("nombre");
-                cliente.Apellido = reader.GetString("apellido");
-                cliente.Telefono = reader.GetString("telefono");
-                cliente.Email = reader.GetString("email");
-                clientes.Add(cliente);
+                while(reader.Read())
+                {
+                    Cliente cliente = new Cliente();
+                    cliente.Id = Int32.Parse(reader.GetString("id"));
+                    cliente.Nombre = reader.GetString("nombre");
+                    cliente.Apellido = reader.GetString("apellido");
+                    cliente.Telefono = reader.GetString("telefono");
+                    cliente.Email = reader.GetString("email");
+                    clientes.Add(cliente);
+                }
+
+                connection.Close();
+
+                //return clientes;
             }
+            catch (Exception e)
+            {
 
-            connection.Close();
+            }
 
             return clientes;
         }

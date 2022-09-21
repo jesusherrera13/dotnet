@@ -22,7 +22,7 @@ namespace DatabaseMSSQL
 
                 SELECT * FROM jugadores;
                 */
-                string connectionString = "Data Source=localhost;Initial Catalog=beisbol;Integrated Security=false;User ID=sa;Password=A1b2C3d4E5$";
+                string connectionString = "Data Source=DELL-G7\\SQLEXPRESS;Initial Catalog=beisbol;Integrated Security=false;User ID=sa;Password=";
                 SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder(connectionString);
 
                 using (SqlConnection connection = new SqlConnection(builder.ConnectionString)) 
