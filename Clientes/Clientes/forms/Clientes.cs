@@ -111,7 +111,7 @@ namespace Clientes
 
             if (clientes.Count == 0) btn_eliminar.Enabled = false;
 
-            for(int i = 0; i < clientes.Count; i++)
+            for (int i = 0; i < clientes.Count; i++)
             {
                 Cliente cliente = clientes.ElementAt(i);
                 list_clientes.Items.Add(cliente);
