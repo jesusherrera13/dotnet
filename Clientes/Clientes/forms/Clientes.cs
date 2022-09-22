@@ -13,6 +13,7 @@ namespace Clientes
 {
     public partial class Clientes : Form
     {
+        Cliente cliente;
         public Clientes()
         {
             InitializeComponent();
@@ -25,8 +26,9 @@ namespace Clientes
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
+            string method = this.cliente != null ? "PUT" : "POST";
             if (list_clientes.Items.Count == 0) btn_eliminar.Enabled = true;
-
+            
             string nombre = txt_nombre.Text;
             string apellido = txt_apellido.Text;
             string telefono = txt_telefono.Text;
@@ -46,13 +48,14 @@ namespace Clientes
                 cliente.Email = txt_email.Text;
 
                 ClienteDao clienteDao = new ClienteDao();
-
-                clienteDao.Store(cliente);
+                if (method == "POST") clienteDao.Store(cliente);
+                else 
+                { 
+                    cliente.Id =this.cliente.Id;
+                    clienteDao.Update(cliente);
+                }
                 //list_clientes.Items.Add(cliente);
-                txt_nombre.Text = "";
-                txt_apellido.Text = "";
-                txt_telefono.Text = "";
-                txt_email.Text = "";
+                clear();
             }
 
             txt_nombre.Focus();
@@ -116,6 +119,31 @@ namespace Clientes
                 Cliente cliente = clientes.ElementAt(i);
                 list_clientes.Items.Add(cliente);
             }
+        }
+
+        private void list_clientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.cliente = (Cliente) list_clientes.SelectedItem;
+            txt_nombre.Text = this.cliente.Nombre;
+            txt_apellido.Text = this.cliente.Apellido;
+            txt_telefono.Text = this.cliente.Telefono;
+            txt_email.Text = this.cliente.Email;
+            txt_nombre.Focus();
+        }
+
+        private void btn_nuevo_Click(object sender, EventArgs e)
+        {
+            clear();
+            txt_nombre.Focus();
+        }
+
+        private void clear()
+        {
+            txt_nombre.Text = "";
+            txt_apellido.Text = "";
+            txt_telefono.Text = "";
+            txt_email.Text = "";
+            this.cliente = new Cliente();
         }
     }
 }

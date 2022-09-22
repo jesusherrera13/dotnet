@@ -97,25 +97,92 @@ namespace Clientes.dao
 
         public void Store(Cliente cliente)
         {
-            /*Conectar();
-            connection.Open();
-            string sql = "" +
-                "INSERT INTO " + database + ".clientes " +
-                "(nombre, apellido, telefono, email) values ('" + cliente.Nombre +"','" + cliente.Apellido +"','" + cliente.Telefono +"','" + cliente.Email + "')";
-            MySqlCommand command = new MySqlCommand(@sql, connection);
-            command.ExecuteNonQuery();
-            connection.Close();*/
+            MySqlConnection connection = Conectar();
+
+            if (connection != null)
+            {
+                connection.Open();
+                string sql = "" +
+                    "INSERT INTO " + database + ".clientes " +
+                    "(nombre, apellido, telefono, email) values ('" + cliente.Nombre + "','" + cliente.Apellido + "','" + cliente.Telefono + "','" + cliente.Email + "')";
+                MySqlCommand command = new MySqlCommand(@sql, connection);
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+            else
+            {
+                MessageBox.Show("Error de Conección");
+            }
+        }
+
+        public void Update(Cliente cliente)
+        {
+            MySqlConnection connection = Conectar();
+
+            if (connection != null)
+            {
+                connection.Open();
+                string sql = "" +
+                    "UPDATE " + database + ".clientes SET nombre='" + cliente.Nombre + "',apellido='" + cliente.Apellido + "',telefono='" + cliente.Telefono + "',email='" + cliente.Email + "' WHERE id=" + cliente.Id;
+                MySqlCommand command = new MySqlCommand(@sql, connection);
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+            else
+            {
+                MessageBox.Show("Error de Conección");
+            }
+        }
+
+        public Cliente Show(int id)
+        {
+            MySqlConnection connection = Conectar();
+            Cliente cliente = new Cliente();
+
+            if (connection != null)
+            {
+                connection.Open();
+                string sql = "SELECT * FROM " + database + ".clientes";
+                MySqlCommand command = new MySqlCommand(@sql, connection);
+                MySqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    cliente = new Cliente();
+                    cliente.Id = Int32.Parse(reader.GetString("id"));
+                    cliente.Nombre = reader.GetString("nombre");
+                    cliente.Apellido = reader.GetString("apellido");
+                    cliente.Telefono = reader.GetString("telefono");
+                    cliente.Email = reader.GetString("email");
+                }
+
+                connection.Close();
+            }
+            else
+            {
+                MessageBox.Show("Error de Conección");
+            }
+
+            return cliente;
+
         }
 
         public void Destroy(int id)
         {
-            /*
-            Conectar();
-            connection.Open();
-            string query = "DELETE FROM clientes where id= " + id;
-            MySqlCommand command = new MySqlCommand(@query, connection);
-            command.ExecuteNonQuery();
-            connection.Close();*/
+            MySqlConnection connection = Conectar();
+
+            if (connection != null)
+            {
+                connection.Open();
+                string query = "DELETE FROM clientes where id= " + id;
+                MySqlCommand command = new MySqlCommand(@query, connection);
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+            else
+            {
+                MessageBox.Show("Error de Conección");
+            }
         }
     }
 }

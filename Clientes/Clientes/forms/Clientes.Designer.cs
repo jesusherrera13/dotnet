@@ -39,6 +39,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txt_email = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.btn_nuevo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // list_clientes
@@ -48,6 +49,7 @@
             this.list_clientes.Name = "list_clientes";
             this.list_clientes.Size = new System.Drawing.Size(120, 238);
             this.list_clientes.TabIndex = 0;
+            this.list_clientes.SelectedIndexChanged += new System.EventHandler(this.list_clientes_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -133,11 +135,22 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Email:";
             // 
+            // btn_nuevo
+            // 
+            this.btn_nuevo.Location = new System.Drawing.Point(384, 124);
+            this.btn_nuevo.Name = "btn_nuevo";
+            this.btn_nuevo.Size = new System.Drawing.Size(75, 23);
+            this.btn_nuevo.TabIndex = 10;
+            this.btn_nuevo.Text = "Nuevo";
+            this.btn_nuevo.UseVisualStyleBackColor = true;
+            this.btn_nuevo.Click += new System.EventHandler(this.btn_nuevo_Click);
+            // 
             // Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_nuevo);
             this.Controls.Add(this.txt_email);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txt_telefono);
@@ -170,5 +183,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txt_email;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btn_nuevo;
     }
 }
