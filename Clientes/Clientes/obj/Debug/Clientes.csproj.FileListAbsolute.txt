@@ -36,3 +36,11 @@ C:\Users\super\source\repos\dotnet\Clientes\Clientes\obj\Debug\Clientes.csproj.C
 C:\Users\super\source\repos\dotnet\Clientes\Clientes\obj\Debug\Clientes.csproj.CopyComplete
 C:\Users\super\source\repos\dotnet\Clientes\Clientes\obj\Debug\Clientes.exe
 C:\Users\super\source\repos\dotnet\Clientes\Clientes\obj\Debug\Clientes.pdb
+C:\Users\super\source\repos\dotnet\Clientes\Clientes\bin\Debug\EntityFramework.dll
+C:\Users\super\source\repos\dotnet\Clientes\Clientes\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\super\source\repos\dotnet\Clientes\Clientes\bin\Debug\System.Data.SQLite.dll
+C:\Users\super\source\repos\dotnet\Clientes\Clientes\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\super\source\repos\dotnet\Clientes\Clientes\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\super\source\repos\dotnet\Clientes\Clientes\bin\Debug\EntityFramework.xml
+C:\Users\super\source\repos\dotnet\Clientes\Clientes\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\super\source\repos\dotnet\Clientes\Clientes\bin\Debug\System.Data.SQLite.xml

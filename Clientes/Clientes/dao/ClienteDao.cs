@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Data.SQLite;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,14 +15,15 @@ namespace Clientes.dao
     {
         public MySqlConnection connection_mysql;
         public SqlConnection connection_mssql;
-        string dbms = "MSSQL";
+        public SQLiteConnection connection_sqlite;
+        string dbms = "SQLite";
         string connectionString;
 
         public void Conectar()
         {
             try
             {
-                if(dbms == "MySQL")
+                if (dbms == "MySQL")
                 {
 
                     /*
@@ -44,7 +47,7 @@ namespace Clientes.dao
                     //string connectionString = "Database=" + database + ";Data Source=" + server + ";User Id=" + user + ";Password=" + password + ";";
                     connection_mysql = new MySqlConnection(connectionString);
                 }
-                else if(dbms == "MSSQL")
+                else if (dbms == "MSSQL")
                 {
 
                     /*
@@ -67,6 +70,53 @@ namespace Clientes.dao
                     //connectionString = "Server=localhost\\SQLEXPRESS;Integrated Security = SSPI; database = MyDB";
                     SqlConnectionStringBuilder sb = new SqlConnectionStringBuilder(connectionString);
                     connection_mssql = new SqlConnection(sb.ConnectionString);
+                }
+                else if (dbms == "SQLite")
+                {
+                    string db = @"Clientes.sqlite";
+                    if (File.Exists(db))
+                    {
+                        string connectionString = "Data Source=" + db;
+                        string sql;
+
+                        connection_sqlite = new SQLiteConnection(connectionString);
+                    }
+                    else 
+                    {
+                        try
+                        {
+                            SQLiteCommand command;
+                            SQLiteDataReader reader;
+                            string connectionString = "Data Source=" + db;
+                            string sql;
+
+                            connection_sqlite = new SQLiteConnection(connectionString);
+                            connection_sqlite.Open();
+
+                            command = connection_sqlite.CreateCommand();
+                            sql = @"CREATE TABLE clientes (id INTEGER PRIMARY KEY,nombre TEXT,apellido TEXT,telefono TEXT,email TEXT)";
+                            command.CommandText = sql;
+                            command.ExecuteNonQuery();
+
+                            sql = "INSERT INTO clientes (nombre,apellido) VALUES ('Thomas A.','Anderson'),('Leon S.','Kennedy'),('Bruce','Wayne');";
+                            command.CommandText = sql;
+                            command.ExecuteNonQuery();
+
+                            //sql = @"CREATE TABLE jugadores (id INTEGER PRIMARY KEY, nombre TEXT, apellido1 TEXT)";
+                            //command.CommandText = sql;
+                            //command.ExecuteNonQuery();
+
+                            //sql = "INSERT INTO jugadores (nombre,apellido1) VALUES ('Thomas A.','Anderson'),('Leon S.','Kennedy'),('Bruce','Wayne');";
+                            //command.CommandText = sql;
+                            //command.ExecuteNonQuery();
+
+                            connection_sqlite.Close();
+                        }
+                        catch (Exception e)
+                        {
+
+                        }
+                    }
                 }
             }
             catch (Exception e)
@@ -127,6 +177,36 @@ namespace Clientes.dao
                                 }
                             }
                         }
+                    }
+                }
+                else if(dbms == "SQLite")
+                {
+                    connection_sqlite.Open();
+                    if (connection_sqlite.State.ToString() == "Open")
+                    {
+                        SQLiteCommand command = connection_sqlite.CreateCommand();
+
+                        string sql = "SELECT id,nombre,apellido,telefono,email FROM clientes";
+                        command.CommandText = sql;
+                        SQLiteDataReader reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            Cliente cliente = new Cliente();
+                            cliente.Id = Int32.Parse(reader["id"].ToString());
+                            cliente.Nombre = reader["nombre"].ToString(); //Nombre
+                            cliente.Apellido = (string)reader["apellido"];
+
+                            // AL INSERTAR LOS REGISTROS LOS CAMPOS telefono,email ESTÁN EN NULL
+                            string telefono = reader["telefono"].ToString();
+                            string email = reader["email"].ToString();
+
+                            if(!string.IsNullOrEmpty(telefono)) cliente.Telefono = (string)reader["telefono"];
+                            if(!string.IsNullOrEmpty(email)) cliente.Email = (string)reader["email"];
+
+                            clientes.Add(cliente);
+                        }
+
+                        connection_sqlite.Close();
                     }
                 }
             }
