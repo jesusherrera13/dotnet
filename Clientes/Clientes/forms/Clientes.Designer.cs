@@ -40,6 +40,7 @@
             this.txt_email = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btn_nuevo = new System.Windows.Forms.Button();
+            this.btn_editar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // list_clientes
@@ -47,7 +48,7 @@
             this.list_clientes.FormattingEnabled = true;
             this.list_clientes.Location = new System.Drawing.Point(12, 12);
             this.list_clientes.Name = "list_clientes";
-            this.list_clientes.Size = new System.Drawing.Size(120, 238);
+            this.list_clientes.Size = new System.Drawing.Size(153, 238);
             this.list_clientes.TabIndex = 0;
             this.list_clientes.SelectedIndexChanged += new System.EventHandler(this.list_clientes_SelectedIndexChanged);
             // 
@@ -145,11 +146,22 @@
             this.btn_nuevo.UseVisualStyleBackColor = true;
             this.btn_nuevo.Click += new System.EventHandler(this.btn_nuevo_Click);
             // 
+            // btn_editar
+            // 
+            this.btn_editar.Location = new System.Drawing.Point(90, 256);
+            this.btn_editar.Name = "btn_editar";
+            this.btn_editar.Size = new System.Drawing.Size(75, 23);
+            this.btn_editar.TabIndex = 11;
+            this.btn_editar.Text = "Editar";
+            this.btn_editar.UseVisualStyleBackColor = true;
+            this.btn_editar.Click += new System.EventHandler(this.btn_editar_Click);
+            // 
             // Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_editar);
             this.Controls.Add(this.btn_nuevo);
             this.Controls.Add(this.txt_email);
             this.Controls.Add(this.label4);
@@ -184,5 +196,6 @@
         private System.Windows.Forms.TextBox txt_email;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btn_nuevo;
+        private System.Windows.Forms.Button btn_editar;
     }
 }

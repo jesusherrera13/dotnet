@@ -1,0 +1,15 @@
+C:\Users\super\source\repos\dotnet\ApiRest\bin\Debug\net6.0\ApiRest.exe
+C:\Users\super\source\repos\dotnet\ApiRest\bin\Debug\net6.0\ApiRest.deps.json
+C:\Users\super\source\repos\dotnet\ApiRest\bin\Debug\net6.0\ApiRest.runtimeconfig.json
+C:\Users\super\source\repos\dotnet\ApiRest\bin\Debug\net6.0\ApiRest.dll
+C:\Users\super\source\repos\dotnet\ApiRest\bin\Debug\net6.0\ApiRest.pdb
+C:\Users\super\source\repos\dotnet\ApiRest\obj\Debug\net6.0\ApiRest.csproj.AssemblyReference.cache
+C:\Users\super\source\repos\dotnet\ApiRest\obj\Debug\net6.0\ApiRest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\super\source\repos\dotnet\ApiRest\obj\Debug\net6.0\ApiRest.AssemblyInfoInputs.cache
+C:\Users\super\source\repos\dotnet\ApiRest\obj\Debug\net6.0\ApiRest.AssemblyInfo.cs
+C:\Users\super\source\repos\dotnet\ApiRest\obj\Debug\net6.0\ApiRest.csproj.CoreCompileInputs.cache
+C:\Users\super\source\repos\dotnet\ApiRest\obj\Debug\net6.0\ApiRest.dll
+C:\Users\super\source\repos\dotnet\ApiRest\obj\Debug\net6.0\refint\ApiRest.dll
+C:\Users\super\source\repos\dotnet\ApiRest\obj\Debug\net6.0\ApiRest.pdb
+C:\Users\super\source\repos\dotnet\ApiRest\obj\Debug\net6.0\ApiRest.genruntimeconfig.cache
+C:\Users\super\source\repos\dotnet\ApiRest\obj\Debug\net6.0\ref\ApiRest.dll

@@ -93,10 +93,11 @@ namespace Clientes
                     clienteDao.Destroy(cliente.Id);
                     txt_nombre.Focus();
                 }
+
+                actualizar();
             }
             else MessageBox.Show("Seleccione el cliente");
 
-            actualizar();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -123,12 +124,7 @@ namespace Clientes
 
         private void list_clientes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.cliente = (Cliente) list_clientes.SelectedItem;
-            txt_nombre.Text = this.cliente.Nombre;
-            txt_apellido.Text = this.cliente.Apellido;
-            txt_telefono.Text = this.cliente.Telefono;
-            txt_email.Text = this.cliente.Email;
-            txt_nombre.Focus();
+            
         }
 
         private void btn_nuevo_Click(object sender, EventArgs e)
@@ -144,6 +140,22 @@ namespace Clientes
             txt_telefono.Text = "";
             txt_email.Text = "";
             this.cliente = new Cliente();
+        }
+
+        private void btn_editar_Click(object sender, EventArgs e)
+        {
+            Cliente cliente = (Cliente)list_clientes.SelectedItem;
+
+            if (cliente != null)
+            {
+                this.cliente = (Cliente)list_clientes.SelectedItem;
+                txt_nombre.Text = this.cliente.Nombre;
+                txt_apellido.Text = this.cliente.Apellido;
+                txt_telefono.Text = this.cliente.Telefono;
+                txt_email.Text = this.cliente.Email;
+                txt_nombre.Focus();
+            }
+            else MessageBox.Show("Seleccione el cliente");
         }
     }
 }
